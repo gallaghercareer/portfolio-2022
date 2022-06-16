@@ -1,7 +1,5 @@
 import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
 import Button from '@mui/material/Button';
-import CameraIcon from '@mui/icons-material/PhotoCamera';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -10,57 +8,26 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import Link from '@mui/material/Link';
-import { createTheme, ThemeProvider, styled ,ButtonGroup, IconButton} from '@mui/material';
-import HomeIcon from '@mui/icons-material/Home';
-import video2 from './media/video2.mp4'
-import cardImage_Sun from './media/sun.jpg'
-import GitHubIcon from '@mui/icons-material/GitHub';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import EmailIcon from '@mui/icons-material/Email';
-import { NoEncryption } from '@mui/icons-material';
-
-
-
+import { createTheme, ThemeProvider} from '@mui/material';
+import video2 from '../media/video2.mp4'
+import cardImage_Sun from '../media/sun.jpg'
+import {useNavigate} from 'react-router-dom'
 
 const theme = createTheme();
 
-const navigateGitHub = () =>{
-  window.open('https://github.com/gallaghercareer?tab=repositories')
-}
 
-const navigateLinkedIn = () =>{
-  window.open('https://www.linkedin.com/in/johngallagher00/')
-}
 
 export default function Home() {
+
+
+let navigate = useNavigate()
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
      
-      <AppBar position="sticky" >
-        <Toolbar >
-          <IconButton  href="#home" sx={{color:'white', fontSize:40}}> <HomeIcon hsx={{fontSize:40, mr: 2 }} /></IconButton>
-          
-          <Button href="#portfolio" sx={{color:'white', fontSize: 25}}>
-            Portfolio 
-          </Button>
-          <Box width="100%" sx={{}}>
-          <Stack gap={5} flexDirection="row" justifyContent="flex-end" > 
-        
-        <ButtonGroup> 
-            <Button target="_blank"href="https://docs.google.com/document/d/1eh-c7nNmuU6CRv5ZS2dTp5LpFqJEkoIwypHCYVvm_4I/edit?usp=sharing" sx={{color:'white', fontSize: 25}}>Resume</Button>
-          
-            <Button href="#about" sx={{color:'white', fontSize: 25}}>About</Button>
-        </ButtonGroup>
-          </Stack>
-          </Box>
-        </Toolbar>
-      </AppBar>
-
+    
 <Box position='relative'> 
 <Card id="home"> 
   <CardMedia component='video' src={video2} autoPlay muted loop sx={{display: 'in-line', zIndex:-1}}>
@@ -88,13 +55,14 @@ export default function Home() {
 }}> 
 
 <Button sx={{display:{xs:"none", sm:"none", md:"none", lg:"block"}}} href="#portfolio" variant="contained" > 
-<Typography variant='h4' sx={{width: 300,padding:3,fontWeight: 450}}>Portfolio</Typography>
+<Typography variant='h4' align="center" sx={{width: 300,padding:3,fontWeight: 450}}>Portfolio</Typography>
 </Button>
 </Box>
 
 </Box>
       
 {/* About Me Section */}
+
         <Box id="about"
           sx={{
           
@@ -147,15 +115,14 @@ export default function Home() {
                   />
                   <CardContent sx={{ flexGrow: 1 }}>
                     <Typography gutterBottom variant="h5" component="h2">
-                      Heading
+                      Shopping Cart
                     </Typography>
                     <Typography>
-                      This is a media card. You can use this section to describe the
-                      content.
+                      Context API---Props--Lists---Advanced Functions--Conditional Rendering
                     </Typography>
                   </CardContent>
                   <CardActions>
-                    <Button size="small">View</Button>
+                    <Button size="small" onClick={()=>{navigate('/shoppingcart')}}>View</Button>
                     <Button size="small">GitHub</Button>
                   </CardActions>
                 </Card>
@@ -178,7 +145,7 @@ export default function Home() {
                       Ticketing System
                     </Typography>
                     <Typography>
-                      User based role permissions--MongoDB--Node express server--React Context API
+                      User based role permissions--MongoDB--Node express server--REST
                     </Typography>
                   </CardContent>
                   <CardActions>
@@ -209,8 +176,8 @@ export default function Home() {
                     </Typography>
                   </CardContent>
                   <CardActions>
-                    <Button size="small">View </Button>
-                    <Button size="small">Github</Button>
+                  <Button size="small" onClick={()=>{navigate('/weather')}}>  View </Button>
+                  <Button size="small" onClick={()=>{window.open('https://www.google.com')}}>GitHub</Button>
                   </CardActions>
                 </Card>
               </Grid>
@@ -221,11 +188,6 @@ export default function Home() {
 
 
       {/* Footer */}
-      <Box sx={{bgcolor: '#2C2C2C'}} display="flex" justifyContent="center" gap={10}>
-     <IconButton  onClick={navigateGitHub}component="div" component="div"><GitHubIcon sx={{fontSize:100,color:'white'}}/></IconButton>
-     <IconButton onClick={navigateLinkedIn} component="span"><LinkedInIcon sx={{fontSize:100,color:'white'}}/></IconButton>
-
-      </Box >
     
       {/* End footer */}
     </ThemeProvider>

@@ -1,42 +1,55 @@
-import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
+import React from 'react'
+import {AppBar, Toolbar, Button,  Stack, Box, ButtonGroup} from '@mui/material'
+import HomeIcon from '@mui/icons-material/Home';
+import {HashLink} from 'react-router-hash-link'
+import {styled} from '@mui/system'
 
-import {Stack} from "@mui/material"
+const StyledButton = styled(HashLink,{})({
+    
+    color: 'white',
+    '&::visited' : {
+        color:'white'
+    },  
+    paddingTop: 5,
+    paddingBottom:5,
+    paddingLeft:15,
+    paddingRight:15,
+    textDecoration: "none",
+    fontSize:25    ,
+    fontWeight:500    
+});
 
 
-export default function Navbar() {
-    return (
-  
-      <AppBar position="static">
-        <Toolbar sx={{ border: '1px solid blue'}}>
+
+
+function Navbar(props) {
+  return (
+    <AppBar position="sticky" >
+    <Toolbar >
+      <StyledButton smooth to="/#home"><HomeIcon sx={{fontSize:40, mr: 2 }} /></StyledButton>
+      
+      <StyledButton smooth to="/#portfolio">PORTFOLIO</StyledButton>
+         
+    
+      <Box width="100%" sx={{}}>
+      <Stack gap={5} flexDirection="row" justifyContent="flex-end" > 
+    
+    <ButtonGroup sx={{display:'flex', alignItems:"center"}}> 
+        <Button target="_blank"href="https://docs.google.com/document/d/1eh-c7nNmuU6CRv5ZS2dTp5LpFqJEkoIwypHCYVvm_4I/edit?usp=sharing" sx={{color:'white', fontSize: 25}}>Resume</Button>
+      
+        <StyledButton smooth to="/#about">
+        ABOUT
+        </StyledButton> 
+
        
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Portfolio
-          </Typography>
-          <Stack direction='row' backgroundColor='green'>
-          <Button color="inherit">Login</Button>
-          <Button color="inherit">Login</Button>
-          <Button color="inherit">Login</Button>
-          </Stack>
+    
+    </ButtonGroup>
    
-        </Toolbar>
-
-      </AppBar>
-  
-  );
+      </Stack>
+      </Box>
+    </Toolbar>
+  </AppBar>
+  )
 }
+
+export default Navbar
