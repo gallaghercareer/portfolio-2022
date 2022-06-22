@@ -1,12 +1,40 @@
 import React from 'react'
-import {Typography,Box, Stack,IconButton} from '@mui/material'
+import {Grid,Typography,Box, Stack,IconButton, Container} from '@mui/material'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import FastfoodIcon from '@mui/icons-material/Fastfood';
 import {useNavigate} from 'react-router-dom'
+import {useContext} from 'react'
+import CartContext from '../Helper/CartContext'
+import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
+
+
 
 function Cart() {
 
-    let navigate= useNavigate()
+ 
+    const navigate= useNavigate()
+
+    const {items} = useContext(CartContext)
+
+    var priceArray = []
+    
+    for(let counter in items){
+      console.log(items[counter].price)
+      priceArray.push( items[counter].price)
+    }
+
+
+    
+    const total = priceArray.reduce(function(passedIn, item){
+      console.log(passedIn)
+      console.log(item.price)
+      return passedIn + item
+    }, 0)
+     
+    console.log(total)
+    
+ 
+   
 
   return (
     <Box sx={{backgroundColor:'#FEF0DC',minHeight:'calc(100vh - 180px)'}}> 
@@ -20,7 +48,29 @@ function Cart() {
    
 
     </Stack>
+ {/* sx={{ padding: 3,marginTop: 3, marginBottom:1, border: '4px solid gray', backgroundColor: 'white', width:'25%'}}*/}
+    <Stack direction="column"> 
+
+<Grid> </Grid>
+{items.map((item)=>{ 
+  return <Container key={item.title}>
+  
+<Stack direction="row" spacing={3}justifyContent="space-evenly"> 
+  <Typography variant="h6" p={1}>{item.name}</Typography>
+  <Typography variant="h6" p={1}> {item.price} </Typography>
+  <IconButton sx={{padding:0, '&:hover':{color:'red'}}}><RemoveCircleOutlineIcon sx={{padding:0,fontSize:50}}> </RemoveCircleOutlineIcon></IconButton>
+  </Stack>
+    
+    </Container>
+})}
+<Container>
+ <Typography variant="h6" sx={{ padding: 3,marginTop: 3, marginBottom:1, border: '4px solid gray', backgroundColor: 'white', width:'25%'}}> {total} </Typography> 
+</Container>
+</Stack>
+
     </Box>
+
+  
   )
 }
 
