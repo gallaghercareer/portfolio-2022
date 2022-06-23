@@ -19,10 +19,10 @@ function ShoppingCart() {
 
   const cartItems = [
     {id:0,title: 'Tomatoes', description: 'Sun-Dried tomatoes from Italy', price: 1, quantity: 0, image: foodImage1 },
-    {id:1,title: 'Oranges', description: 'As well as vitamin C, oranges contain fiber, potassium and choline, all of which are good for your heart.', price: 1.50, quantity: 0, image: mango },
-    {id:2,title: 'Bananas', description: 'Bananas are one of the most popular fruits worldwide. They contain essential nutrients that can have a protective impact on health', price: 1.00, quantity: 0, image: mango },
-    {id:3,title: 'Mangos', description: 'Mango is rich in vitamins, minerals, and antioxidants, and it has been associated with many health benefits, including potential anticancer effects', price: 2.50, quantity: 0, image: mango },
-    {id:4,title: 'Grapes', description: 'Cultivated for thousands of years, grapes are packed with nutrients, antioxidants, and powerful plant compounds.', price: 3.00, quantity: 0, image: mango }
+    {id:1,title: 'Oranges', description: 'Juicy Oranges from Florida', price: 1.50, quantity: 0, image: mango },
+    {id:2,title: 'Bananas', description: 'Ripe bananas from New Guinea', price: 1.00, quantity: 0, image: mango },
+    {id:3,title: 'Mangos', description: 'Delicious Mango from Brazil', price: 2.50, quantity: 0, image: mango },
+    {id:4,title: 'Grapes', description: 'Cultivated grapes from Rome', price: 3.00, quantity: 0, image: mango }
   ]
 
 
