@@ -1,5 +1,5 @@
 import React from 'react'
-import {Button, Grid, Typography, Box, Stack, IconButton, Container } from '@mui/material'
+import {Button,  Typography, Box, Stack, IconButton, Container } from '@mui/material'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import FastfoodIcon from '@mui/icons-material/Fastfood';
 import { useNavigate } from 'react-router-dom'
@@ -64,7 +64,7 @@ function Cart() {
 {/*Total of All Cart items */}
         <Container sx={{paddingLeft:0, paddingRight: 0,width:'50%'}}>
           <Typography align="center" variant="h6" sx={{ padding: 3, marginBottom: 1, border: '4px', backgroundColor: 'white'}}> Total Cost: ${total} </Typography>
-          <Button variant="outlined" size="large" sx={{margin:'auto',width: '100%'}}onClick={()=>{navigate('/Cart')}}> See Cart</Button>
+          <Button variant="outlined" size="large" sx={{margin:'auto',width: '100%'}} onClick={()=>{navigate('/shoppingcart')}}> See Food</Button>
         </Container>
      
       </Stack>

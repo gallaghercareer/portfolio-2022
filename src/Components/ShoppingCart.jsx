@@ -8,7 +8,6 @@ import Carousel from 'react-material-ui-carousel'
 import FoodItems from './foodItems'
 import foodImage1 from '../media/sun.jpg'
 import mango from '../media/mango(400x400).jpg'
-import { v4 as uuidv4 } from 'uuid';
 
 
 function ShoppingCart() {
