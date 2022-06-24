@@ -128,7 +128,7 @@ let navigate = useNavigate()
                 </Card>
               </Grid>
               <Grid item xs={12} sm={6} md={4}>
-                <Card
+               {/* <Card
                   sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
                 >
                   <CardMedia
@@ -152,8 +152,8 @@ let navigate = useNavigate()
                     <Button size="small">View</Button>
                     <Button size="small">GitHub</Button>
                   </CardActions>
-                </Card>
-              </Grid>
+                </Card>*/}
+                  </Grid>
               <Grid item xs={12} sm={6} md={4}>
                 <Card
                   sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}

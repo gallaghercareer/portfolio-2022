@@ -12,7 +12,7 @@ import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
 
 function Cart() {
 
-
+  /*Navigate */
   const navigate = useNavigate()
 
   const { items } = useContext(CartContext)
