@@ -122,7 +122,7 @@ let navigate = useNavigate()
                     </Typography>
                   </CardContent>
                   <CardActions>
-                    <Button size="small" onClick={()=>{navigate('/shoppingcart')}}>View</Button>
+                    <Button size="small" onClick={()=>{navigate('/shoppingcart/#shopheader')}}>View</Button>
                     <Button size="small">GitHub</Button>
                   </CardActions>
                 </Card>
