@@ -8,6 +8,7 @@ import Carousel from 'react-material-ui-carousel'
 import FoodItems from './foodItems'
 import foodImage1 from '../media/sun.jpg'
 import mango from '../media/mango(400x400).jpg'
+import tomato from '../media/tomato.jpg'
 
 
 function ShoppingCart() {
@@ -17,7 +18,7 @@ function ShoppingCart() {
 
 
   const cartItems = [
-    {id:0,title: 'Tomatoes', description: 'Sun-Dried tomatoes from Italy', price: 1, quantity: 0, image: foodImage1 },
+    {id:0,title: 'Tomatoes', description: 'Sun-Dried tomatoes from Italy', price: 1, quantity: 0, image: tomato },
     {id:1,title: 'Oranges', description: 'Juicy Oranges from Florida', price: 1.50, quantity: 0, image: mango },
     {id:2,title: 'Bananas', description: 'Ripe bananas from New Guinea', price: 1.00, quantity: 0, image: mango },
     {id:3,title: 'Mangos', description: 'Delicious Mango from Brazil', price: 2.50, quantity: 0, image: mango },
