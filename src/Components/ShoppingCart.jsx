@@ -4,12 +4,12 @@ import { React } from 'react'
 import { useNavigate } from 'react-router-dom'
 import FastfoodIcon from '@mui/icons-material/Fastfood';
 import image from '../media/foodImage.jpg'
-import Carousel from 'react-material-ui-carousel'
 import FoodItems from './foodItems'
-import foodImage1 from '../media/sun.jpg'
-import mango from '../media/mango(400x400).jpg'
+import mango from '../media/mango.jpg'
 import tomato from '../media/tomato.jpg'
-
+import orange from '../media/orange.jpg'
+import banana from '../media/banana.jpg'
+import grape from '../media/grape.jpg'
 
 function ShoppingCart() {
 
@@ -18,15 +18,15 @@ function ShoppingCart() {
 
   const cartItems = [
     {id:0,title: 'Tomatoes', description: 'Sun-Dried tomatoes from Italy', price: 1, quantity: 0, image: tomato },
-    {id:1,title: 'Oranges', description: 'Juicy Oranges from Florida', price: 1.50, quantity: 0, image: mango },
-    {id:2,title: 'Bananas', description: 'Ripe bananas from Africa', price: 1.00, quantity: 0, image: mango },
+    {id:1,title: 'Oranges', description: 'Juicy Oranges from Florida', price: 1.50, quantity: 0, image: orange },
+    {id:2,title: 'Bananas', description: 'Ripe bananas from Africa', price: 1.00, quantity: 0, image: banana },
     {id:3,title: 'Mangos', description: 'Delicious Mango from Brazil', price: 2.50, quantity: 0, image: mango },
-    {id:4,title: 'Grapes', description: 'Cultivated grapes from Rome', price: 3.00, quantity: 0, image: mango }
+    {id:4,title: 'Grapes', description: 'Cultivated grapes from Rome', price: 3.00, quantity: 0, image: grape }
   ]
 
 
   return (
-    <Box id="shopheader" sx={{
+    <Box  sx={{
       minHeight: 'calc(100vh - 180px)', backgroundImage: `url(${image})`, backgroundRepeat: "no-repeat",
       backgroundPosition: "center center",
       backgroundSize: "cover",
@@ -34,7 +34,7 @@ function ShoppingCart() {
 
 
 
-      <Stack direction="row" marginBottom={10}>
+      <Stack id="shopheader" direction="row" marginBottom={10}>
         <Box marginTop={10} display="flex" direction="row" justifyContent="flex-start">
           <IconButton> <ShoppingCartIcon sx={{ '&:hover': { borderBottom: '10px solid #3D2318' }, borderRadius: '5px', backgroundColor: '#FEF0DC', fontSize: 100, color: '#997A63' }} onClick={() => { navigate('/cart') }} /></IconButton>
           <IconButton><FastfoodIcon sx={{ '&:hover': { borderBottom: '10px solid #3D2318' }, fontSize: 100, color: '#997A63', backgroundColor: '#FEF0DC' }} onClick={() => { navigate('/shoppingcart') }} /></IconButton>

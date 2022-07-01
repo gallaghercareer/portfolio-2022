@@ -6,6 +6,7 @@ import Button from '@mui/material/Button';
 import {useNavigate} from 'react-router-dom'
 import { v4 as uuidv4 } from 'uuid';
 import CloseIcon from '@mui/icons-material/Close';
+import MuiAlert from '@mui/material/Alert';
 
 
 
@@ -36,8 +37,9 @@ function FoodItems(props) {
       <IconButton
         size="small"
         aria-label="close"
-        color="inherit"
+        color="primary"
         onClick={handleClose}
+        
       >
         <CloseIcon fontSize="small" />
       </IconButton>
@@ -75,6 +77,7 @@ function FoodItems(props) {
       }}>Add Food</Button>
 <Button variant="outlined" size="large" onClick={()=>{navigate('/Cart')}}> See Cart</Button>
 <Snackbar
+       
         open={open}
         autoHideDuration={3000}
         onClose={handleClose}
