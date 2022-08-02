@@ -2,15 +2,10 @@ import axios from 'axios'
 import { useState,useEffect} from 'react'
 import { useNavigate } from 'react-router-dom'
 import Goals from './Goals'
-import ClipLoader from "react-spinners/ClipLoader";
 import {Grid,FormControl,TextField,Button,Stack} from '@mui/material'
 const {v4: uuid} = require('uuid')
 
-const override = {
-  display: "block",
-  margin: "50px auto",
-  
-};
+
 
 function Dashboard() {
   
@@ -18,7 +13,6 @@ const [goals, setGoals] = useState([])
 const [formData, setFormData] = useState({
   newGoal : ''
 })
-let [isLoading, setLoading] = useState(true);
 
 
 const {newGoal} = formData
@@ -36,13 +30,11 @@ useEffect(()=>{
 
   axios.get('https://heroku-app-012.herokuapp.com/api/goals',config)
     .then(function (response) {
-       setLoading(false)
 
        setGoals(response.data)
           })
     .catch(function (error) {
         console.log("error isss:" + error);
-        setLoading(false)
 
       });
   
@@ -98,10 +90,9 @@ useEffect(()=>{
   return (
   <>
  
-  { isLoading && <ClipLoader color="#000000" loading={isLoading} cssOverride={override} size={150} />}
   
   {/*Grid Container*/}
-  <Grid container spacing={1} sx={{minHeight:'calc(100vh - 180px)'}}>
+  <Grid container spacing={1} sx={{minHeight:'calc(100vh - 170px)'}}>
 
   {/*Grid item 1*/}
   <Grid item xs={12} sx={{display:'flex', alignItems:'center',justifyContent:'center'}}>  
