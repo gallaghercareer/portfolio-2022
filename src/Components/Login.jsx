@@ -29,6 +29,7 @@ function Login() {
 
   const postUp = (e) =>{
     e.preventDefault()
+    navigate('/dashboard')
     axios.post('https://heroku-app-012.herokuapp.com/api/users/login', {
       email: email,
       password: password
@@ -36,7 +37,7 @@ function Login() {
     .then(function (response) {
       console.log(response.data)
       localStorage.setItem('token',JSON.stringify(response.data.token))
-      navigate('/dashboard')
+   
     })
     .catch(function (error) {
       console.log(error);
