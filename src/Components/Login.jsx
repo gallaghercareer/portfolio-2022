@@ -17,7 +17,7 @@ function Login() {
 
   })
 
-  const { email, password} = formData
+  const {email, password} = formData
   
 
   const onChange= (e) =>{
@@ -51,12 +51,12 @@ function Login() {
    <Grid container sx={{minHeight:'calc(100vh - 180px)'}}>
     <Grid item xs={12} sx={{display:'flex', alignItems:'center',justifyContent:'center'}}> 
     
-    <FormControl>
-<TextField type="email" variant="standard" label="Email" name="email" value={email} onChange={onChange}> Email</TextField>
-<TextField type="password" variant="standard" label="password" name="password" value={password} onChange={onChange}>Password</TextField>
-  <FormHelperText>User: John@gmail.com Password:Hired</FormHelperText>
-  <Button  onClick={postUp}>Login</Button>
-</FormControl>
+      <FormControl>
+      <TextField type="email" variant="standard" label="Email" name="email" value={email} onChange={onChange}> Email</TextField>
+      <TextField type="password" variant="standard" label="password" name="password" value={password} onChange={onChange}>Password</TextField>
+        <FormHelperText>User: John@gmail.com Password:Hired</FormHelperText>
+        <Button  onClick={postUp}>Login</Button>
+      </FormControl>
 
     </Grid>
     </Grid>

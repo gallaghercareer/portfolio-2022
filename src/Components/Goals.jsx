@@ -1,5 +1,7 @@
 import axios from 'axios'
 import React from 'react'
+import {Box,Stack,IconButton} from '@mui/material'
+import CloseIcon from '@mui/icons-material/Close'
 
 function Goals(props) {
 
@@ -16,19 +18,23 @@ function Goals(props) {
       },
     }
 
-axios.delete(`http://localhost:8000/api/goals/${props.id}`, config)
+axios.delete(`https://heroku-app-012.herokuapp.com/api/goals/${props.id}`, config)
 .then((response)=>{
    props.deleteGoal(props.id)}
     
-    //props.setGoals((goals.filter((goal)=>{goal.id !== goals.id}))
+   
 
 ).catch((error)=>{
  console.log(error)
 })}
   return (
-    <div>
- {props.goalText}
- </div>
+  <>
+  <Box justifyContent="space-between" display="flex" bgcolor="#F1F3F4" sx={{borderRadius:1,marginTop:1,padding:1}}> 
+ {props.goalText}<IconButton onClick={deleteGoal} sx={{margin:0, padding:0}}>
+        <CloseIcon sx={{margin:0, padding:0}}></CloseIcon>
+    </IconButton>
+ </Box>
+    </>
   )
 }
 

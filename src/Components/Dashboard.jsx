@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import Goals from './Goals'
 import ClipLoader from "react-spinners/ClipLoader";
 import {Grid,FormControl,TextField,Button,Stack} from '@mui/material'
+import { LocalConvenienceStoreOutlined } from '@mui/icons-material';
 const {v4: uuid} = require('uuid')
 
 const override = {
@@ -21,11 +22,17 @@ const [formData, setFormData] = useState({
 const[isError,setErrorMessage] = useState(false)
 let [isLoading, setLoading] = useState(true);
 
+
 const {newGoal} = formData
 
 const navigate = useNavigate()
 
 useEffect(()=>{
+  
+  goals.forEach((goal)=>{
+    console.log('goal equals:' + goal)
+  })
+    
     const token = JSON.parse(localStorage.getItem('token'))
     const config = {
       headers: {
@@ -40,7 +47,7 @@ useEffect(()=>{
 
        setGoals(response.data)
           })
-      .catch(function (error) {
+    .catch(function (error) {
         console.log("error isss:" + error);
         setLoading(false)
 
@@ -51,7 +58,10 @@ useEffect(()=>{
   
 
   const createGoal = (e) =>{
-    e.preventDefault()
+   
+  e.preventDefault()
+
+    console.log("goal equals :" + newGoal)
     const token = JSON.parse(localStorage.getItem('token'))
 
     const config = {
@@ -62,12 +72,11 @@ useEffect(()=>{
     }
 
     axios.post('https://heroku-app-012.herokuapp.com/api/goals', {
-      text: newGoal
-
+      text : newGoal,
     },config)
     .then(function (response) {
-       
-      setGoals([...goals,{text: response.data.goal.text, _id: response.data.goal._id}])
+     console.log(response)
+    setGoals([...goals,{text: response.data.goal.text, _id: response.data.goal._id}])
     })
     .catch(function (error) {
       console.log(error);
@@ -110,8 +119,9 @@ useEffect(()=>{
     }
  
  
-    
+    <Stack sx={{fontSize:20,width:'30%'}}> 
     {goals.map(goal=><Goals key={uuid()} id={goal._id}goalText={goal.text} deleteGoal={deleteGoal}> </Goals>)}
+    </Stack>
 </Grid>
   {/*Grid item 2*/}
     <Grid item xs={12} sx={{display:'flex', alignItems:'center',justifyContent:'center'}}>  
