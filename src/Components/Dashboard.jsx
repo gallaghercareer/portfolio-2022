@@ -19,7 +19,6 @@ const [goals, setGoals] = useState([])
 const [formData, setFormData] = useState({
   newGoal : ''
 })
-const[isError,setErrorMessage] = useState(false)
 let [isLoading, setLoading] = useState(true);
 
 
@@ -27,12 +26,7 @@ const {newGoal} = formData
 
 const navigate = useNavigate()
 
-useEffect(()=>{
-  
-  goals.forEach((goal)=>{
-    console.log('goal equals:' + goal)
-  })
-    
+useEffect(()=>{   
     const token = JSON.parse(localStorage.getItem('token'))
     const config = {
       headers: {
@@ -51,7 +45,6 @@ useEffect(()=>{
         console.log("error isss:" + error);
         setLoading(false)
 
-        setErrorMessage(true) 
       });
   
   },[])
@@ -113,11 +106,7 @@ useEffect(()=>{
 
   {/*Grid item 1*/}
   <Grid item xs={12} sx={{display:'flex', alignItems:'center',justifyContent:'center'}}>  
-  {
-    
-    isError && <div>  Please login!</div>
-    }
- 
+
  
     <Stack sx={{fontSize:20,width:'30%'}}> 
     {goals.map(goal=><Goals key={uuid()} id={goal._id}goalText={goal.text} deleteGoal={deleteGoal}> </Goals>)}
