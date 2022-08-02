@@ -3,22 +3,25 @@ import { useState,useEffect} from 'react'
 import { useNavigate } from 'react-router-dom'
 import Goals from './Goals'
 import ClipLoader from "react-spinners/ClipLoader";
-
+import {Grid,FormControl,TextField,Button,Stack} from '@mui/material'
 const {v4: uuid} = require('uuid')
 
 const override = {
   display: "block",
-  margin: "0 auto",
- 
+  margin: "50px auto",
+  
 };
 
 function Dashboard() {
   
 const [goals, setGoals] = useState([])  
-const [form, setFormData] = useState('')
+const [formData, setFormData] = useState({
+  newGoal : ''
+})
 const[isError,setErrorMessage] = useState(false)
 let [isLoading, setLoading] = useState(true);
 
+const {newGoal} = formData
 
 const navigate = useNavigate()
 
@@ -59,7 +62,7 @@ useEffect(()=>{
     }
 
     axios.post('https://heroku-app-012.herokuapp.com/api/goals', {
-      text: form
+      text: newGoal
 
     },config)
     .then(function (response) {
@@ -90,28 +93,46 @@ useEffect(()=>{
     localStorage.removeItem('token')
     navigate('/login')
   }
+
   return (
   <>
-  <div>
+ 
   { isLoading && <ClipLoader color="#000000" loading={isLoading} cssOverride={override} size={150} />}
+  
+  {/*Grid Container*/}
+  <Grid container spacing={1} sx={{minHeight:'calc(100vh - 180px)'}}>
 
-    {
+  {/*Grid item 1*/}
+  <Grid item xs={12} sx={{display:'flex', alignItems:'center',justifyContent:'center'}}>  
+  {
     
     isError && <div>  Please login!</div>
     }
-    <div>   
-    
-    </div>
+ 
+ 
     
     {goals.map(goal=><Goals key={uuid()} id={goal._id}goalText={goal.text} deleteGoal={deleteGoal}> </Goals>)}
-  </div>
-  
-  <form onSubmit={createGoal}>
-    <input onChange={onChange} name="text" type="string" placeholder="Add a new goal..."></input>
-    <button type="submit">Submit</button>
-  </form>
-  <button onClick={logout}>Logout</button>
+</Grid>
+  {/*Grid item 2*/}
+    <Grid item xs={12} sx={{display:'flex', alignItems:'center',justifyContent:'center'}}>  
 
+<Stack sx={{width:'30%'}}>
+  <FormControl>
+    <TextField  type="string" variant="standard" label="Goal" name="goal" value={newGoal} onChange={onChange}>
+
+    </TextField>
+
+  </FormControl>
+  
+  <Button  sx={{marginTop:2}} color="success" variant="contained" onClick={createGoal}>Add Goal</Button>
+  <Button  sx={{marginTop:2}}variant="contained" onClick={logout}>LogOut</Button>
+  </Stack>
+  </Grid>
+    {/*Grid item 3*/
+  <Grid item xs={12} sx={{display:'flex', alignItems:'center',justifyContent:'center'}}>  
+
+  </Grid>}
+  </Grid>
   </>
   )
 }
