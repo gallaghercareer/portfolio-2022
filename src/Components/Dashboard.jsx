@@ -118,7 +118,7 @@ useEffect(()=>{
 
 <Stack sx={{width:'30%'}}>
   <FormControl>
-    <TextField  type="string" variant="standard" label="Goal" name="goal" value={newGoal} onChange={onChange}>
+    <TextField  type="string" variant="standard" label="Goal" name="newGoal" value={newGoal} onChange={onChange}>
 
     </TextField>
 
