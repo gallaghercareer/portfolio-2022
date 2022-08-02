@@ -154,7 +154,7 @@ export default function Home() {
                      Full Stack- Goals
                     </Typography>
                     <Typography>
-                      Full Stack Project--protected routes, JWT and login, Node Express Server
+                      Full Stack Project--Heroku Deployed,protected routes, JWT and login, Node Express Server
                     </Typography>
                   </CardContent>
                   <CardActions>
