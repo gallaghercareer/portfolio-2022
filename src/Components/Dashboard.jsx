@@ -2,14 +2,26 @@ import axios from 'axios'
 import { useState,useEffect} from 'react'
 import { useNavigate } from 'react-router-dom'
 import Goals from './Goals'
+import ClipLoader from "react-spinners/ClipLoader";
+
 const {v4: uuid} = require('uuid')
+
+const override = {
+  display: "block",
+  margin: "0 auto",
+ 
+};
 
 function Dashboard() {
   
 const [goals, setGoals] = useState([])  
 const [form, setFormData] = useState('')
 const[isError,setErrorMessage] = useState(false)
+let [isLoading, setLoading] = useState(true);
+
+
 const navigate = useNavigate()
+
 useEffect(()=>{
     const token = JSON.parse(localStorage.getItem('token'))
     const config = {
@@ -21,11 +33,14 @@ useEffect(()=>{
 
   axios.get('https://heroku-app-012.herokuapp.com/api/goals',config)
     .then(function (response) {
-    
+       setLoading(false)
+
        setGoals(response.data)
           })
       .catch(function (error) {
         console.log("error isss:" + error);
+        setLoading(false)
+
         setErrorMessage(true) 
       });
   
@@ -78,6 +93,8 @@ useEffect(()=>{
   return (
   <>
   <div>
+  { isLoading && <ClipLoader color="#000000" loading={isLoading} cssOverride={override} size={150} />}
+
     {
     
     isError && <div>  Please login!</div>
