@@ -59,7 +59,6 @@ const override = {
   }
 
 
-
   return (
     <> 
   { isLoading && <ClipLoader color="#000000" loading={isLoading} cssOverride={override} size={150} />}
@@ -67,9 +66,10 @@ const override = {
    <Grid container sx={{minHeight:'calc(100vh - 180px)'}}>
     <Grid item xs={12} sx={{display:'flex', alignItems:'center',justifyContent:'center'}}> 
     
-      <FormControl>
-      <TextField helperText={isError ? 'Email is john@gmail.com' : '' }error={isError}type="email" variant="standard" label="Email" name="email" value={email} onChange={onChange}> Email</TextField>
-      <TextField helperText={isError ? 'Password is Hired' : '' }error={isError} type="password" variant="standard" label="Password" name="password" value={password} onChange={onChange}>Password</TextField>
+      <FormControl sx={{width:{xs:'70%',lg:'30%'}}}>
+      <TextField 
+      sx={{fontSize:10}}  helperText={isError ? 'Email is john@gmail.com' : '' }error={isError}type="email" variant="standard" label="Email" name="email" value={email} onChange={onChange}> Email</TextField>
+      <TextField sx={{marginTop:5}}helperText={isError ? 'Password is Hired' : '' }error={isError} type="password" variant="standard" label="Password" name="password" value={password} onChange={onChange}>Password</TextField>
       <FormHelperText>User:John@gmail.com Password:Hired</FormHelperText>
       <Button sx={{marginTop:2}}color="success" variant="contained" onClick={postUp}>Login</Button>
       </FormControl>
