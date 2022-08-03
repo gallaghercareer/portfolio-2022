@@ -29,10 +29,10 @@ export default function Home() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-
+      <Box id="home"></Box>
       {/*Video banner*/}
-      <Box position='relative'  sx={{display: {xs:'none',lg:'block'}}}>
-        <Card id="home">
+      <Box position='relative'  sx={{display: {xs:'none',  lg:'block'}}}>
+        <Card>
           <CardMedia component='video' src={video2} autoPlay muted loop sx={{ display: 'in-line', zIndex: -1 }}>
 
           </CardMedia>
