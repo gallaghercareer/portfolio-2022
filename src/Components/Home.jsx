@@ -16,9 +16,9 @@ import video2 from '../media/video2.mp4'
 import cardImage_Sun from '../media/sun.jpg'
 import cardImage_Bullseye from '../media/bullseye.jpg'
 import cardImage_Shoppingcart from '../media/shoppingcart.jpg'
-
+import {CardActionArea} from '@mui/material'
 import { useNavigate } from 'react-router-dom'
-
+import {Link} from 'react-router-dom'
 const theme = createTheme();
 
 
@@ -128,6 +128,7 @@ export default function Home() {
             <Card
               sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
             >
+              <CardActionArea component={Link} to="/shoppingcart">
               <CardMedia
                 component="img"
                 sx={{
@@ -136,7 +137,9 @@ export default function Home() {
                 height="300"
                 image={cardImage_Shoppingcart}
                 alt="random"
+                
               />
+               </CardActionArea>
               <CardContent sx={{ flexGrow: 1 }}>
                 <Typography gutterBottom variant="h5" component="h2">
                   Shopping Cart 
@@ -157,6 +160,8 @@ export default function Home() {
              <Card
                   sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
                 >
+                                <CardActionArea component={Link} to="/login">
+
                   <CardMedia
                     component="img"
                     sx={{
@@ -166,6 +171,7 @@ export default function Home() {
                     image={cardImage_Bullseye}
                     alt="random"
                   />
+                   </CardActionArea>
                   <CardContent sx={{ flexGrow: 1 }}>
                     <Typography gutterBottom variant="h5" component="h2">
                      Full Stack- Goals
@@ -186,6 +192,7 @@ export default function Home() {
             <Card
               sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
             >
+               <CardActionArea component={Link} to="/weather">  
               <CardMedia
                 component="img"
                 sx={{
@@ -195,6 +202,7 @@ export default function Home() {
                 image={cardImage_Sun}
                 alt="random"
               />
+              </CardActionArea>
               <CardContent sx={{ flexGrow: 1 }}>
                 <Typography gutterBottom variant="h5" component="h2">
                   Weather App
