@@ -30,8 +30,8 @@ export default function Home() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
 
-
-      <Box position='relative'>
+      {/*Video banner*/}
+      <Box position='relative'  sx={{display: {xs:'none',lg:'block'}}}>
         <Card id="home">
           <CardMedia component='video' src={video2} autoPlay muted loop sx={{ display: 'in-line', zIndex: -1 }}>
 
@@ -44,7 +44,7 @@ export default function Home() {
           top: 100,
           left: '50%',
           transform: 'translateX(-50%)'
-
+        
         }}>
           <Typography sx={{ typography: { sm: 'h6', md: 'h2', lg: 'h1' }, h1: { "fontWeight": 400 }, h2: { "fontWeight": 400 }, h3: { "fontWeight": 400 } }}>I build wonderful exeriences for the <Typography component="div" sx={{ typography: { xs: 'h5', md: 'h3', lg: 'h1' }, fontWeight: 450, color: '#237FFF' }}>web</Typography></Typography>
 
@@ -66,7 +66,7 @@ export default function Home() {
 
       </Box>
 
-      {/* About Me Section */}
+      {/* Welcome to My Portfolio */}
 
       <Box id="about"
         sx={{
@@ -101,11 +101,11 @@ export default function Home() {
         </Container>
       </Box>
 
-      {/*BEGIN CARDS */}
+      {/*BEGIN CARDS GRID*/}
       <Container sx={{ py: 8 }} maxWidth="lg" id="portfolio">
         <Typography align="center" variant='h3'>Software Applications</Typography>
         <Grid container sx={{ py: 8 }} spacing={4}>
-          <Grid item xs={12} sm={6} md={4}>
+          <Grid item xs={12} sm={12} md={12} lg={4}>
 
             {/*CARD 1*/}
             <Card
@@ -134,7 +134,7 @@ export default function Home() {
               </CardActions>
             </Card>
           </Grid>
-          <Grid item xs={12} sm={6} md={4}>
+          <Grid item xs={12} sm={12} md={12} lg={4}>
 
             {/* CARD 2 */}
              <Card
@@ -163,7 +163,7 @@ export default function Home() {
                   </CardActions> 
                 </Card>
           </Grid>
-          <Grid item xs={12} sm={6} md={4}>
+          <Grid item xs={12} sm={12} md={12} lg={4}>
             
                         {/* CARD 3 */}
             <Card
