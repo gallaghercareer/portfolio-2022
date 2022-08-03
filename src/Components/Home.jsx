@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {useEffect, useState} from 'react'
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -25,18 +26,34 @@ const theme = createTheme();
 export default function Home() {
 
   let navigate = useNavigate()
+  const [autoPlay, setAutoPlay] = useState(false)
+  
+  
+  useEffect(()=>{
 
-  return (
+   if(window.innerWidth >= 1200){
+    setAutoPlay(true)
+  }
+  }, []);
+
+  return ( 
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Box id="home"></Box>
       {/*Video banner*/}
       <Box position='relative'  sx={{display: {xs:'none',  lg:'block'}}}>
-        <Card>
-          <CardMedia component='video' src={video2} autoPlay muted loop sx={{ display: 'in-line', zIndex: -1 }}>
-
+       
+        {autoPlay ?
+          <Card>
+          <CardMedia component='video' autoPlay src={video2}  muted loop sx={{ display: 'in-line', zIndex: -1}}>
           </CardMedia>
-        </Card>
+          </Card> : 
+          
+          <Card>
+          <CardMedia component='video' src={video2}  muted loop sx={{ display: 'in-line', zIndex: -1}}>
+          </CardMedia>
+          </Card>  } 
+    
 
         <Box sx={{
           position: 'absolute',
