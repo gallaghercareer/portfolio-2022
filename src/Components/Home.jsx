@@ -106,7 +106,7 @@ export default function Home() {
             Welcome to My Portfolio!
           </Typography>
           <Typography variant="h5" align="center" color="text.secondary" paragraph>
-            I am a software developer with 3 years professional experience. I am searching for a job requiring proficiency as a full stack developer in ReactJS and NodeJs.
+            I am a software developer with 6 years professional experience. I am searching for a job requiring proficiency as a full stack developer.
           </Typography>
           <Stack
             sx={{ pt: 4 }}
@@ -174,15 +174,15 @@ export default function Home() {
                    </CardActionArea>
                   <CardContent sx={{ flexGrow: 1 }}>
                     <Typography gutterBottom variant="h5" component="h2">
-                     Full Stack- Goals
+                     C#/.NET Ticketing Application
                     </Typography>
                     <Typography>
-                      Full Stack Project--Heroku Deployed,protected routes, JWT and login, Node Express Server
+                      Full Stack Project--Azure Deployed, ASP.NET MVC Application
                     </Typography>
                   </CardContent>
                   <CardActions>
-                    <Button size="small"onClick={() => { navigate('/login') }}>View</Button>
-                    <Button size="small" onClick={() => { window.open('https://github.com/gallaghercareer/heroku-node-app-1') }}>GitHub</Button>
+                  <Button size="small" onClick={() => { window.open('https://github.com/gallaghercareer/heroku-node-app-1') }}>View</Button>
+                  <Button size="small" onClick={() => { window.open('https://github.com/gallaghercareer/heroku-node-app-1') }}>GitHub</Button>
                   </CardActions> 
                 </Card>
           </Grid>
