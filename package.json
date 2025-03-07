@@ -11,6 +11,7 @@
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.27.2",
+    "gh-pages": "^6.3.0",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-material-ui-carousel": "^3.4.2",
@@ -19,13 +20,16 @@
     "react-scripts": "5.0.1",
     "react-spinners": "^0.13.4",
     "uuid": "^8.3.2",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "homepage": "https://github.com/gallaghercareer/portfolio-2022"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+  "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
