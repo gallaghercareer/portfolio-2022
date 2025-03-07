@@ -181,8 +181,8 @@ export default function Home() {
                     </Typography>
                   </CardContent>
                   <CardActions>
-                  <Button size="small" onClick={() => { window.open('https://github.com/gallaghercareer/heroku-node-app-1') }}>View</Button>
-                  <Button size="small" onClick={() => { window.open('https://github.com/gallaghercareer/heroku-node-app-1') }}>GitHub</Button>
+                  <Button size="small" onClick={() => { window.open('https://finalprorere20250306153225-gnhzdjhbawbfgaaq.canadacentral-01.azurewebsites.net') }}>View</Button>
+                  <Button size="small" onClick={() => { window.open('https://github.com/gallaghercareer/2022-NETMVC-App') }}>GitHub</Button>
                   </CardActions> 
                 </Card>
           </Grid>
